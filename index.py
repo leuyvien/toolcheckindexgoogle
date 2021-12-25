@@ -6,10 +6,10 @@ path_urls = "urls.txt"
 path_proxies = "proxies.txt"
 
 urls = []
-urls = File_Interact.read_file(path_urls)
+urls = File_Interact.read_file_list(path_urls)
 
 proxies = []
-proxies = File_Interact.read_file(path_proxies)
+proxies = File_Interact.read_file_list(path_proxies)
 
 headers = {
     'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36',
