@@ -5,11 +5,11 @@ from utils import *
 path_urls = "urls.txt"
 path_proxies = "proxies.txt"
 
-urls = []
-urls = File_Interact.read_file_list(path_urls)
+urls = File_Interact(path_urls)
+urls = urls.read_file_list()
 
-proxies = []
-proxies = File_Interact.read_file_list(path_proxies)
+proxies = File_Interact(path_proxies)
+proxies = proxies.read_file_list()
 
 headers = {
     'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36',
@@ -24,11 +24,11 @@ def test_checkindex():
             html_page = requests.get(f"https://www.google.com/search?q=site:{url}", headers=headers)
             soup = BeautifulSoup (html_page.content, 'html.parser')
             result = soup.find("div", id="rso")
+            biendem += 1
             if result :
                 print(f"{biendem} --- {url} --- Url này đã được indexed\n")
             else:
                 print(f"{biendem} --- {url} --- Url này chưa được indexed\n")
-            biendem += 1
         except BaseException as e:
             print("Loi: ", e)
 
